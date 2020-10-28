@@ -9,7 +9,7 @@
       <div class="avatar"><img src="https://www.gravatar.com/avatar/{{md5 .}}?s=240&d=mp" alt="gravatar"></div>
     {{ end }}
     <h1>{{ .Site.Params.author }}</h1>
-    <h2>{{ .Site.Params.info }}</h2>
+    <h2>{{ .Site.Params.subtitle }}</h2>
     {{ with .Site.Params.social }}
     <ul>
       {{ range sort . "weight" }}
@@ -27,5 +27,9 @@
       {{ end }}
     </ul>
     {{ end }}
+    {{ with .Site.Params.info }}
+      <div class="info"><h2>{{ . | markdownify }}</h2></div>
+    {{ end }}
+    <div class="info2">{{ .Site.Params.info2 }}</div>
   </div>
 </section>

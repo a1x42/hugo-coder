@@ -23,6 +23,9 @@ disqusShortname = "yourdiscussshortname"
     #gravatar = "john.doe@example.com"
     footercontent = "Enter a text here."
 
+    #logo will be shown instead of title in header
+    #logourl = "images/logotype-a.png"
+
     dateformat = "January 2, 2006"
 
     hideFooter = false
