@@ -3,7 +3,7 @@
     <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}">
       {{ if .Site.Params.logourl }}
         {{ with .Site.Params.logourl }}
-          <img src="{{ . | relURL }}" alt="logo">
+          <img src="{{ . | relURL }}" alt="logo" title="{{ i18n "start_page" }}">
         {{ end }}
       {{ else }}
         {{ .Site.Title }}
