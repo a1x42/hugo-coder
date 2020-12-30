@@ -3,6 +3,7 @@ title = "johndoe"
 
 theme = "hugo-coder"
 
+
 languageCode = "en"
 defaultContentLanguage = "en"
 
