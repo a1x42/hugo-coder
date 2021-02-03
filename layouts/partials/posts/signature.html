@@ -1,0 +1,19 @@
+{{ $currentPageUrl := .RelPermalink }}
+<section class="signature">
+  <div class="pic">
+  {{ with .Site.Params.signatureurl }}
+    <img src="{{ . | relURL }}" alt="signature pic">
+  {{ end }}
+  </div>
+  <div class="text">
+<p>
+  <b>
+    {{ .Site.Params.author }}
+  </b>
+</p>
+<p>
+  {{ .Site.Params.blogSignature }}
+</p>
+  </div>
+  
+</section>
