@@ -1,0 +1,20 @@
+    <div class="side">
+      <h1>{{ title (i18n "posts") }}</h1>
+      <ul>
+        {{- range ( where site.RegularPages "Section" "posts" | first 5 ) -}}
+          {{- .Render "side-li" -}}
+        {{- end -}}
+      </ul>
+      <h1>{{ title (i18n "category") }}</h1>
+      <ul>
+        {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+          <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+        {{end}}
+      </ul>
+      <h1>{{ title (i18n "tag") }}</h1>
+      <ul>
+        {{range ($.Site.GetPage "taxonomyTerm" "tags").Pages }}
+          <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+        {{end}}
+      </ul>
+    </div>

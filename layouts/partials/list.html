@@ -1,4 +1,5 @@
 <section class="container list">
+  <div class="main">
   <h1 class="title">
     <a class="title-link" href="{{ .Permalink | safeURL }}">
       {{- if eq .Kind "term" -}}
@@ -19,4 +20,6 @@
     {{ end }}
   </ul>
   {{ partial "pagination.html" . }}
+  </div>
+  {{ partial "posts/sidebar.html" . }}
 </section>
