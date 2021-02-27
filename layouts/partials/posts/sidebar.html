@@ -8,14 +8,14 @@
       </ul>
       <h1>{{ title (i18n "category") }}</h1>
       <ul>
-        {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
-          <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+        {{range .Site.Taxonomies.categories }}
+          <li><a href="{{.Page.Permalink}}">{{.Page.Title}}</a></li>
         {{end}}
       </ul>
       <h1>{{ title (i18n "tag") }}</h1>
       <ul>
-        {{range ($.Site.GetPage "taxonomyTerm" "tags").Pages }}
-          <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+        {{range .Site.Taxonomies.tags }}
+          <li><a href="{{.Page.Permalink}}">{{.Page.Title}}</a></li>
         {{end}}
       </ul>
     </div>
