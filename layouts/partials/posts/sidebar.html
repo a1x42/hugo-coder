@@ -13,9 +13,7 @@
         {{end}}
       </ul>
       <h1>{{ title (i18n "tag") }}</h1>
-      <ul>
-        {{range .Site.Taxonomies.tags }}
-          <li><a href="{{.Page.Permalink}}">{{.Page.Title}}</a></li>
-        {{end}}
-      </ul>
+      {{range .Site.Taxonomies.tags }}
+        <div class="tag"><a href="{{.Page.Permalink}}"><i class="fa fa-tags" aria-hidden="true">&nbsp;{{.Page.Title}}</i></a> </div>
+      {{end}}
     </div>
