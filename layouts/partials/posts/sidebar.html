@@ -1,3 +1,4 @@
+    {{ $current := . }}
     <div class="side">
       <a href="{{ "/index.xml" | relLangURL }}"><i class="fa fa-rss-square" aria-hidden="true"> {{ i18n "subscribe" }}</i></a>
       <h1>{{ title (i18n "posts") }}</h1>
@@ -13,7 +14,10 @@
         {{end}}
       </ul>
       <h1>{{ title (i18n "tag") }}</h1>
+      <div class="tags">
       {{range .Site.Taxonomies.tags }}
-        <div class="tag"><a href="{{.Page.Permalink}}"><i class="fa fa-tags" aria-hidden="true">&nbsp;{{.Page.Title}}</i></a> </div>
+        {{ $active := and (eq $current.Kind "term") (eq $current.Type "tags") (eq $current.Title .Page.Title) }}
+        <a{{ if $active }} class="active"{{ end }} href="{{.Page.Permalink}}"><div class="tag"><i class="fa fa-tags" aria-hidden="true">&nbsp;{{.Page.Title}}</i></div></a>
       {{end}}
+      </div>
     </div>

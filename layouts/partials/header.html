@@ -23,7 +23,7 @@
             {{ $active = or $active (and (in $current.RelPermalink "/tags") (eq .URL "posts")) }}
 
             <li class="navigation-item">
-              <a class="navigation-link {{ if $active }} active{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+              <a class="navigation-link{{ if $active }} active{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
             </li>
           {{ end }}
         {{ end }}
