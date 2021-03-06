@@ -1,5 +1,5 @@
     <div class="side">
-      <a href="{{ "/index.xml" | relLangURL }}"><i class="fa fa-rss-square" aria-hidden="true"></i> {{ i18n "subscribe" }}</a>
+      <a href="{{ "/index.xml" | relLangURL }}"><i class="fa fa-rss-square" aria-hidden="true"> {{ i18n "subscribe" }}</i></a>
       <h1>{{ title (i18n "posts") }}</h1>
       <ul>
         {{- range ( where site.RegularPages "Section" "posts" | first 5 ) -}}
