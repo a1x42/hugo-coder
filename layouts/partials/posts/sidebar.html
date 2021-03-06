@@ -8,9 +8,10 @@
         {{- end -}}
       </ul>
       <h1>{{ title (i18n "category") }}</h1>
-      <ul>
+      <ul class="categories">
         {{range .Site.Taxonomies.categories }}
-          <li><a href="{{.Page.Permalink}}">{{.Page.Title}}</a></li>
+          {{ $active := and (eq $current.Kind "term") (eq $current.Type "categories") (eq $current.Title .Page.Title) }}
+          <li{{ if $active }} class="active"{{ end }}><a href="{{.Page.Permalink}}">{{.Page.Title}}</a></li>
         {{end}}
       </ul>
       <h1>{{ title (i18n "tag") }}</h1>
