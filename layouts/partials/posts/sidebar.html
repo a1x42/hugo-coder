@@ -1,20 +1,14 @@
     {{ $current := . }}
     <div class="side">
       <a href="{{ "/index.xml" | relLangURL }}"><i class="fa fa-rss-square" aria-hidden="true"> {{ i18n "subscribe" }}</i></a>
-      <h1>{{ title (i18n "posts") }}</h1>
-      <ul>
-        {{- range ( where site.RegularPages "Section" "posts" | first 5 ) -}}
-          {{- .Render "side-li" -}}
-        {{- end -}}
-      </ul>
-      <h1>{{ title (i18n "category") }}</h1>
+      <h2>{{ title (i18n "category") }}</h2>
       <ul class="categories">
         {{range .Site.Taxonomies.categories }}
           {{ $active := and (eq $current.Kind "term") (eq $current.Type "categories") (eq $current.Title .Page.Title) }}
           <li{{ if $active }} class="active"{{ end }}><a href="{{.Page.Permalink}}">{{.Page.Title}}</a></li>
         {{end}}
       </ul>
-      <h1>{{ title (i18n "tag") }}</h1>
+      <h2>{{ title (i18n "tag") }}</h2>
       <div class="tags">
       {{range .Site.Taxonomies.tags }}
         {{ $active := and (eq $current.Kind "term") (eq $current.Type "tags") (eq $current.Title .Page.Title) }}

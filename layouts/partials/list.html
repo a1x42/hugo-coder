@@ -1,25 +1,26 @@
 <section class="container list">
   <div class="main">
-  <h1 class="title">
-    <a class="title-link" href="{{ .Permalink | safeURL }}">
-      {{- if eq .Kind "term" -}}
-        {{- i18n .Data.Singular | title -}}
-        {{- print ": " -}}
-      {{- end -}}
-
-      {{- .Title -}}
-    </a>
-  </h1>
-  {{ .Content }}
-  <ul>
-    {{ range .Paginator.Pages }}
-    <li>
-      <span class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
-      <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
-    </li>
-    {{ end }}
-  </ul>
-  {{ partial "pagination.html" . }}
+      <div class="blog-header">
+        <div class="img">
+          {{ with .Site.Params.blogimgurl }}
+            <img src="{{ . | relURL }}" alt="Blog header image"></img>
+          {{ end }}
+        </div>
+        <div class="slogan">{{ .Site.Params.blogSlogan }}
+        </div>
+      </div>
+      <div class="blog-body">
+        {{ .Content }}
+        <ul>
+          {{ range .Paginator.Pages }}
+          <li>
+            <span class="date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
+            <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+        {{ partial "pagination.html" . }}
+      </div>
   </div>
   {{ partial "posts/sidebar.html" . }}
 </section>

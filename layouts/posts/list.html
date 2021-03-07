@@ -4,19 +4,25 @@
 {{ define "content" }}
   <section class="container list">
     <div class="main">
-    <h1 class="title">
-      <a class="title-link" href="{{ .Permalink | safeURL }}">
-        {{ title (i18n (lower .Title)) | default .Title }}
-      </a>
-    </h1>
-    {{ .Content }}
-    <ul>
-      {{- range .Paginator.Pages -}}
-        {{- .Render "li" -}}
-      {{- end -}}
-    </ul>
+      <div class="blog-header">
+        <div class="img">
+          {{ with .Site.Params.blogimgurl }}
+            <img src="{{ . | relURL }}" alt="Blog header image"></img>
+          {{ end }}
+        </div>
+        <div class="slogan">{{ .Site.Params.blogSlogan }}
+        </div>
+      </div>
+      <div class="blog-body">
+        {{ .Content }}
+        <ul>
+          {{- range .Paginator.Pages -}}
+            {{- .Render "li" -}}
+          {{- end -}}
+        </ul>
 
-    {{ partial "pagination.html" . }}
+        {{ partial "pagination.html" . }}
+      </div>
     </div>
     {{ partial "posts/sidebar.html" . }}
   </section>
