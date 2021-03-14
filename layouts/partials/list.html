@@ -1,5 +1,6 @@
 <section class="container list">
-  <div class="main">
+  <div class="main-wrapper">
+    <div id="mainsection" class="main">
       <div class="blog-header">
         <div class="img">
           {{ with .Site.Params.blogimgurl }}
@@ -21,6 +22,7 @@
         </ul>
         {{ partial "pagination.html" . }}
       </div>
+    </div>
   </div>
   {{ partial "posts/sidebar.html" . }}
 </section>

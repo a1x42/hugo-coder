@@ -3,25 +3,27 @@
 {{ end }}
 {{ define "content" }}
   <section class="container list">
-    <div class="main">
-      <div class="blog-header">
-        <div class="img">
-          {{ with .Site.Params.blogimgurl }}
-            <img src="{{ . | relURL }}" alt="Blog header image"></img>
-          {{ end }}
+    <div class="main-wrapper">
+      <div id="mainsection" class="main">
+        <div class="blog-header">
+          <div class="img">
+            {{ with .Site.Params.blogimgurl }}
+              <img src="{{ . | relURL }}" alt="Blog header image"></img>
+            {{ end }}
+          </div>
+          <div class="slogan">{{ .Site.Params.blogSlogan }}
+          </div>
         </div>
-        <div class="slogan">{{ .Site.Params.blogSlogan }}
-        </div>
-      </div>
-      <div class="blog-body">
-        {{ .Content }}
-        <ul>
-          {{- range .Paginator.Pages -}}
-            {{- .Render "li" -}}
-          {{- end -}}
-        </ul>
+        <div class="blog-body">
+          {{ .Content }}
+          <ul>
+            {{- range .Paginator.Pages -}}
+              {{- .Render "li" -}}
+            {{- end -}}
+          </ul>
 
-        {{ partial "pagination.html" . }}
+          {{ partial "pagination.html" . }}
+        </div>
       </div>
     </div>
     {{ partial "posts/sidebar.html" . }}

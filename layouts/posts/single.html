@@ -3,7 +3,8 @@
 {{ end }}
 {{ define "content" }}
   <section class="container post">
-    <div class="main">
+    <div class="main-wrapper">
+    <div id="mainsection" class="main">
     <article>
       <header>
         <div class="post-title">
@@ -48,6 +49,7 @@
     </article>
 
     {{ partial "posts/math.html" . }}
+    </div>
     </div>
     {{ partial "posts/sidebar.html" . }}
   </section>
