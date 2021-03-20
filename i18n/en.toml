@@ -14,7 +14,7 @@ other = "series"
 other = "author"
 
 [posts]
-other = "posts"
+other = "blog"
 
 [reading_time]
 one = "One-minute read"
