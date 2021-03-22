@@ -1,6 +1,8 @@
     {{ $current := . }}
+    {{ if .Site.Params.blogfbshow }}
     <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="Odxb29en"></script>
+    {{ end }}
     <div class="side-btn">
       <button onclick="javascript:openNav()">
         <i id="toggleimg" class="fa fa-chevron-circle-left" aria-hidden="true"></i>
@@ -24,5 +26,7 @@
         <a{{ if $active }} class="active"{{ end }} href="{{.Page.Permalink}}"><div class="tag"><i class="fa fa-tags" aria-hidden="true">&nbsp;{{.Page.Title}}</i></div></a>
       {{end}}
       </div>
-      <div class="fb-page" data-href="https://www.facebook.com/evamediator/" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/evamediator/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/evamediator/">Eva Rohde - Mediation and personal development</a></blockquote></div>
+      {{ if .Site.Params.blogfbshow }}
+        <div class="fb-page" data-href="https://www.facebook.com/{{ .Site.Params.blogfbpageref }}/" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/{{ .Site.Params.blogfbpageref }}/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/{{ .Site.Params.blogfbpageref }}/">{{ .Site.Params.blogfbpagetitle }}</a></blockquote></div>
+      {{end}}
     </div>
