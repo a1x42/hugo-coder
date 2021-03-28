@@ -1,1 +1,4 @@
 **/.smb*
+**/themes/
+exampleSite/public/
+exampleSite/resources/
