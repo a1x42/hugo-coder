@@ -18,7 +18,7 @@
       <ul class="navigation-list">
         {{ with .Site.Menus.main}}
           {{ range sort . }}
-            {{ $active := in $current.RelPermalink .URL }}
+            {{ $active := (in $current.RelPermalink (print "/" .URL)) }}
             {{ $active = or $active (and (in $current.RelPermalink "/categories") (eq .URL "posts")) }}
             {{ $active = or $active (and (in $current.RelPermalink "/tags") (eq .URL "posts")) }}
 
